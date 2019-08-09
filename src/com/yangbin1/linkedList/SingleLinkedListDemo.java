@@ -8,7 +8,9 @@ package com.yangbin1.linkedList;
  */
 public class SingleLinkedListDemo {
     public static void main(String[] args) {
-
+        //进行测试
+        //创建节点
+        HeroNode heroNode = new HeroNode(1, "songjiang", "jishiyu");
     }
 
     //定义SingleLinkedList管理节点
