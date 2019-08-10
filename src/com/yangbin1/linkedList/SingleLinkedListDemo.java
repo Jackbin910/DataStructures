@@ -17,10 +17,15 @@ public class SingleLinkedListDemo {
 
         //创建链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.add(heroNode1);
-        singleLinkedList.add(heroNode2);
-        singleLinkedList.add(heroNode3);
-        singleLinkedList.add(heroNode4);
+//        singleLinkedList.add(heroNode1);
+//        singleLinkedList.add(heroNode2);
+//        singleLinkedList.add(heroNode3);
+//        singleLinkedList.add(heroNode4);
+
+        singleLinkedList.addByOrder(heroNode1);
+        singleLinkedList.addByOrder(heroNode4);
+        singleLinkedList.addByOrder(heroNode2);
+        singleLinkedList.addByOrder(heroNode3);
         //显示
         singleLinkedList.list();
 
@@ -49,6 +54,34 @@ class SingleLinkedList {
         }
         //退出while循环，指向链表最后
         temp.next = heroNode;
+    }
+
+    public void addByOrder(HeroNode heroNode) {
+        HeroNode temp = head;
+        boolean flag = false;//标识编号是否存在
+        while (true) {
+            if (temp.next == null) {
+                break;
+            }
+            if (temp.next.no > heroNode.no) {
+                //位置找到，在temp后插入
+                break;
+            } else if (temp.next.no == heroNode.no) {
+                //说明添加的heroNode的编号已经存在
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        //判断flag的值
+        if (flag) {
+            System.out.printf("准备插入英雄的编号%d 已经存在，不能加入\n",heroNode.no);
+        } else {
+            //插入链表中，temp的后面
+            heroNode.next = temp.next;
+            temp.next = heroNode;
+
+        }
     }
 
     //显示链表(遍历）
