@@ -37,6 +37,11 @@ public class SingleLinkedListDemo {
         System.out.println("修改后");
         singleLinkedList.list();
 
+        //删除
+        singleLinkedList.del(1);
+        System.out.println("删除后");
+        singleLinkedList.list();
+
     }
 }
 
@@ -121,6 +126,30 @@ class SingleLinkedList {
             System.out.printf("没有找到编号%d的节点，不能修改\n", newHeroNode.no);
         }
     }
+
+    //删除节点
+    public void del(int no) {
+        HeroNode temp = head;
+        boolean flag = false; //是否找到
+        while (true) {
+            if (temp.next == null) {
+                break;
+            }
+            if (temp.next.no == no) {
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        if (flag) {
+            //删除
+            temp.next = temp.next.next;
+        } else {
+            System.out.printf("要删除的%d节点不存在\n", no);
+        }
+
+    }
+
 
 
     //显示链表(遍历）
