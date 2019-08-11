@@ -42,6 +42,23 @@ public class SingleLinkedListDemo {
         System.out.println("删除后");
         singleLinkedList.list();
 
+        //节点个数
+        System.out.println(getLength(singleLinkedList.getHead()));
+
+    }
+
+    //获取节点个数
+    public static int getLength(HeroNode head) {
+        if (head.next == null) {
+            return 0;
+        }
+        int length = 0;
+        HeroNode cur = head.next;
+        while (cur != null) {
+            length++;
+            cur = cur.next;
+        }
+        return length;
     }
 }
 
@@ -49,6 +66,11 @@ public class SingleLinkedListDemo {
 class SingleLinkedList {
     //初始化头节点,不存放具体数据
     private HeroNode head = new HeroNode(0, "", "");
+
+    //返回头节点
+    public HeroNode getHead() {
+        return head;
+    }
 
     //添加节点到单向链表
     //找到最后的节点，将最后的节点next指向新的节点
@@ -88,7 +110,7 @@ class SingleLinkedList {
         }
         //判断flag的值
         if (flag) {
-            System.out.printf("准备插入英雄的编号%d 已经存在，不能加入\n",heroNode.no);
+            System.out.printf("准备插入英雄的编号%d 已经存在，不能加入\n", heroNode.no);
         } else {
             //插入链表中，temp的后面
             heroNode.next = temp.next;
