@@ -1,6 +1,34 @@
 package com.yangbin1.linkedList;
 
 public class DoubleLinkedListDemo {
+
+    public static void main(String[] args) {
+        //测试
+        System.out.println("双向链表测试");
+        HeroNode2 heroNode1 = new HeroNode2(1, "songjiang", "jishiyu");
+        HeroNode2 heroNode2 = new HeroNode2(2, "lujunyi", "yuqiling");
+        HeroNode2 heroNode3 = new HeroNode2(3, "wuyong", "zhiduoxing");
+        HeroNode2 heroNode4 = new HeroNode2(4, "linchong", "baozitou");
+
+        //创建链表
+        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
+        doubleLinkedList.add(heroNode1);
+        doubleLinkedList.add(heroNode2);
+        doubleLinkedList.add(heroNode3);
+        doubleLinkedList.add(heroNode4);
+        doubleLinkedList.list();
+
+        //修改
+        HeroNode2 newHeroNode = new HeroNode2(4, "gongsunsheng", "ruyunlong");
+        doubleLinkedList.update(newHeroNode);
+        System.out.println("修改后的链表");
+        doubleLinkedList.list();
+
+        //删除
+        doubleLinkedList.del(3);
+        System.out.println("删除后的链表");
+        doubleLinkedList.list();
+    }
 }
 
 //定义SingleLinkedList管理节点
